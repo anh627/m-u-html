@@ -10,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             overflow-x: hidden;
@@ -18,7 +17,6 @@
             min-height: 100vh;
             color: white;
         }
-
         /* Galaxy Background Gradient */
         .galaxy-background {
             position: fixed;
@@ -26,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, 
+            background: linear-gradient(135deg,
                 #0f0c29 0%,
                 #302b63 25%,
                 #24243e 50%,
@@ -34,7 +32,6 @@
                 #1a1a3e 100%);
             z-index: -3;
         }
-
         /* Lớp phủ galaxy xanh tím - Hiệu ứng giải lụa nhấp nhô */
         .silk-ribbon1 {
             position: fixed;
@@ -42,85 +39,79 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(ellipse at center, 
-                rgba(123, 67, 255, 0.3) 0%, 
+            background: radial-gradient(ellipse at center,
+                rgba(123, 67, 255, 0.3) 0%,
                 transparent 40%);
             animation: floatRibbon1 15s ease-in-out infinite;
             z-index: -2;
         }
-
         .silk-ribbon2 {
             position: fixed;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(ellipse at center, 
-                rgba(189, 0, 255, 0.3) 0%, 
+            background: radial-gradient(ellipse at center,
+                rgba(189, 0, 255, 0.3) 0%,
                 transparent 40%);
             animation: floatRibbon2 20s ease-in-out infinite;
             z-index: -2;
         }
-
         .silk-ribbon3 {
             position: fixed;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(ellipse at center, 
-                rgba(255, 119, 248, 0.2) 0%, 
+            background: radial-gradient(ellipse at center,
+                rgba(255, 119, 248, 0.2) 0%,
                 transparent 45%);
             animation: floatRibbon3 18s ease-in-out infinite;
             z-index: -2;
         }
-
         /* Animations cho giải lụa nhấp nhô */
         @keyframes floatRibbon1 {
-            0%, 100% { 
+            0%, 100% {
                 transform: translate(0%, 0%) scale(1) rotate(0deg);
                 opacity: 0.3;
             }
-            25% { 
+            25% {
                 transform: translate(20%, -10%) scale(1.1) rotate(45deg);
                 opacity: 0.5;
             }
-            50% { 
+            50% {
                 transform: translate(-10%, 20%) scale(0.9) rotate(90deg);
                 opacity: 0.4;
             }
-            75% { 
+            75% {
                 transform: translate(10%, 10%) scale(1.05) rotate(-45deg);
                 opacity: 0.6;
             }
         }
-
         @keyframes floatRibbon2 {
-            0%, 100% { 
+            0%, 100% {
                 transform: translate(0%, 0%) scale(1.2) rotate(180deg);
                 opacity: 0.3;
             }
-            33% { 
+            33% {
                 transform: translate(-20%, 15%) scale(1) rotate(270deg);
                 opacity: 0.5;
             }
-            66% { 
+            66% {
                 transform: translate(15%, -20%) scale(1.3) rotate(360deg);
                 opacity: 0.4;
             }
         }
-
         @keyframes floatRibbon3 {
-            0%, 100% { 
+            0%, 100% {
                 transform: translate(0%, 0%) scale(0.8) rotate(-90deg);
                 opacity: 0.2;
             }
-            50% { 
+            50% {
                 transform: translate(25%, 25%) scale(1.2) rotate(90deg);
                 opacity: 0.4;
             }
         }
-
         /* Logo góc trái */
         .logo-container {
             position: fixed;
@@ -131,13 +122,12 @@
             height: 80px;
             cursor: pointer;
         }
-
         .logo-box {
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 20px;
-            box-shadow: 
+            box-shadow:
                 0 0 30px rgba(102, 126, 234, 0.6),
                 0 0 60px rgba(118, 75, 162, 0.4),
                 inset 0 0 20px rgba(255, 255, 255, 0.1);
@@ -145,7 +135,6 @@
             position: relative;
             overflow: hidden;
         }
-
         /* Ánh sáng kim loại lướt qua */
         .logo-box::before {
             content: '';
@@ -166,7 +155,6 @@
             );
             animation: metallicShine 3s linear infinite;
         }
-
         /* Ánh sáng kim loại thứ 2 cho hiệu ứng đẹp hơn */
         .logo-box::after {
             content: '';
@@ -185,7 +173,6 @@
             );
             animation: metallicShine2 4s linear infinite;
         }
-
         /* Chữ STEM đứng yên hoàn toàn */
         .logo-text {
             position: fixed;
@@ -201,20 +188,18 @@
             color: white;
             pointer-events: none;
             z-index: 101;
-            text-shadow: 
+            text-shadow:
                 0 0 10px rgba(0, 0, 0, 0.5),
                 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-
         /* Hover effect */
         .logo-container:hover .logo-box {
             animation-play-state: paused;
             transform: scale(1.1);
-            box-shadow: 
+            box-shadow:
                 0 0 40px rgba(102, 126, 234, 0.8),
                 0 0 80px rgba(118, 75, 162, 0.6);
         }
-
         /* Canvas cho hiệu ứng lấp lánh */
         #sparkleCanvas {
             position: fixed;
@@ -225,72 +210,258 @@
             pointer-events: none;
             z-index: 1;
         }
-
-        /* STEM EDUCATION - di chuyển lên góc trái cạnh logo */
-        .main-title {
+        /* Toggle Button - Nút mở/đóng sidebar đẹp hơn */
+        .toggle-btn {
             position: fixed;
-            top: 45px;
+            top: 50px;
             left: 130px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 
+                0 5px 20px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+        }
+        .toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .toggle-btn:hover::before {
+            left: 100%;
+        }
+        .toggle-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        .toggle-btn .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .toggle-btn .hamburger-line::before,
+        .toggle-btn .hamburger-line::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        .toggle-btn .hamburger-line::before {
+            top: -6px;
+        }
+        .toggle-btn .hamburger-line::after {
+            top: 6px;
+        }
+        .toggle-btn.open .hamburger-line {
+            background: transparent;
+        }
+        .toggle-btn.open .hamburger-line::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+        .toggle-btn.open .hamburger-line::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+        /* Sidebar Menu - Bảng lựa chọn đẹp hơn */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, 
+                rgba(15, 12, 41, 0.95) 0%,
+                rgba(48, 43, 99, 0.95) 50%,
+                rgba(36, 36, 62, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 99;
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding-top: 120px;
+            box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        .sidebar-header h2 {
             font-size: 1.5rem;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0 10px;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 5px 0;
+        }
+        .sidebar button {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            color: white;
+            border: none;
+            padding: 18px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .sidebar button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .sidebar button:hover::before,
+        .sidebar button.active::before {
+            left: 100%;
+        }
+        .sidebar button:hover,
+        .sidebar button.active {
+            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+        }
+        .sidebar button .icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        /* Overlay khi sidebar mở */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 98;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Content Container */
+        .content-container {
+            position: relative;
+            z-index: 10;
+            padding: 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Tiêu đề nổi bật */
+        .main-title {
+            font-size: 5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, 
-                #ffffff 0%, 
-                #00ffff 25%, 
-                #ff00ff 50%, 
-                #00ffff 75%, 
+            background: linear-gradient(135deg,
+                #ffffff 0%,
+                #00ffff 25%,
+                #ff00ff 50%,
+                #00ffff 75%,
                 #ffffff 100%);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 
-                0 0 20px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            text-shadow:
+                0 0 40px rgba(255, 255, 255, 0.5);
             animation: textGlow 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
-            z-index: 102;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
         }
-
         /* Animations */
         @keyframes rotateLogo {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         @keyframes metallicShine {
-            0% { 
+            0% {
                 transform: translateX(-100%) translateY(-100%) rotate(45deg);
             }
-            100% { 
+            100% {
                 transform: translateX(100%) translateY(100%) rotate(45deg);
             }
         }
-
         @keyframes metallicShine2 {
-            0% { 
+            0% {
                 transform: translateX(100%) translateY(-100%) rotate(-45deg);
             }
-            100% { 
+            100% {
                 transform: translateX(-100%) translateY(100%) rotate(-45deg);
             }
         }
-
         @keyframes textGlow {
-            0%, 100% { 
+            0%, 100% {
                 background-position: 0% 50%;
-                filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5));
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
             }
-            50% { 
+            50% {
                 background-position: 100% 50%;
-                filter: drop-shadow(0 0 15px rgba(255, 119, 248, 0.8));
+                filter: drop-shadow(0 0 30px rgba(255, 119, 248, 0.8));
             }
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .main-title {
-                font-size: 1.2rem;
-                left: 100px;
-                top: 40px;
+                font-size: 3rem;
             }
             .logo-container, .logo-text {
                 width: 60px;
@@ -299,10 +470,42 @@
             .logo-text {
                 font-size: 0.9rem;
             }
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+            .sidebar button {
+                font-size: 0.9rem;
+                padding: 16px 20px;
+                gap: 10px;
+            }
+            .toggle-btn {
+                top: 40px;
+                left: 110px;
+                width: 45px;
+                height: 45px;
+            }
+            .toggle-btn .hamburger-line,
+            .toggle-btn .hamburger-line::before,
+            .toggle-btn .hamburger-line::after {
+                width: 18px;
+                height: 2px;
+            }
+            .toggle-btn .hamburger-line::before {
+                top: -5px;
+            }
+            .toggle-btn .hamburger-line::after {
+                top: 5px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Toggle Button - Nút mở/đóng sidebar với hamburger animation -->
+    <button id="toggleBtn" class="toggle-btn">
+        <span class="hamburger-line"></span>
+    </button>
+
     <!-- Logo góc trái -->
     <div class="logo-container">
         <div class="logo-box"></div>
@@ -310,23 +513,43 @@
     <!-- Chữ STEM đứng yên -->
     <div class="logo-text">STEM</div>
 
-    <!-- STEM EDUCATION cạnh logo -->
-    <h1 class="main-title">STEM EDUCATION</h1>
-
     <!-- Background Layers -->
     <div class="galaxy-background"></div>
     <div class="silk-ribbon1"></div>
     <div class="silk-ribbon2"></div>
     <div class="silk-ribbon3"></div>
-    
+   
     <!-- Canvas cho hiệu ứng lấp lánh -->
     <canvas id="sparkleCanvas"></canvas>
 
+    <!-- Sidebar Menu - Bảng lựa chọn với header và icons -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>MÔN HỌC STEM</h2>
+        </div>
+        <ul>
+            <li><button class="subject-btn active" data-subject="trang-chu"><span class="icon">🏠</span> Trang chủ</button></li>
+            <li><button class="subject-btn" data-subject="co-hoc"><span class="icon">⚙️</span> Cơ học</button></li>
+            <li><button class="subject-btn" data-subject="quang-hoc"><span class="icon">🔬</span> Quang học</button></li>
+            <li><button class="subject-btn" data-subject="dien-tu"><span class="icon">⚡</span> Điện tử</button></li>
+            <li><button class="subject-btn" data-subject="nhiet-hoc"><span class="icon">🔥</span> Nhiệt học</button></li>
+            <li><button class="subject-btn" data-subject="hoa-hoc"><span class="icon">🧪</span> Hoá học</button></li>
+            <li><button class="subject-btn" data-subject="toan-hoc"><span class="icon">📐</span> Toán học</button></li>
+            <li><button class="subject-btn" data-subject="mini-game"><span class="icon">🎮</span> Mini game</button></li>
+        </ul>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+   
+    <!-- Main Content -->
+    <div class="content-container">
+        <h1 class="main-title">STEM EDUCATION</h1>
+    </div>
     <script>
         // Canvas sparkle effect - phân bố đều trên toàn trang
         const canvas = document.getElementById('sparkleCanvas');
         const ctx = canvas.getContext('2d');
-
         // Set canvas size
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -334,13 +557,11 @@
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-
         // Sparkle particles phân bố đều
         class Sparkle {
             constructor() {
                 this.reset();
             }
-
             reset() {
                 // Phân bố đều trên toàn màn hình
                 this.x = Math.random() * canvas.width;
@@ -350,19 +571,17 @@
                 this.maxBrightness = Math.random() * 0.8 + 0.2;
                 this.fadeSpeed = Math.random() * 0.02 + 0.01;
                 this.fadingIn = true;
-                
+               
                 // Tạo hiệu ứng lấp lánh tĩnh (không di chuyển nhiều)
                 this.twinkleSpeed = Math.random() * 0.1 - 0.05;
                 this.originalX = this.x;
                 this.originalY = this.y;
                 this.twinkleRadius = Math.random() * 2;
             }
-
             update() {
                 // Hiệu ứng lấp lánh tại chỗ
                 this.x = this.originalX + Math.sin(Date.now() * 0.001 * this.twinkleSpeed) * this.twinkleRadius;
                 this.y = this.originalY + Math.cos(Date.now() * 0.001 * this.twinkleSpeed) * this.twinkleRadius;
-
                 // Fade in/out
                 if (this.fadingIn) {
                     this.brightness += this.fadeSpeed;
@@ -376,11 +595,10 @@
                     }
                 }
             }
-
             draw() {
                 ctx.save();
                 ctx.globalAlpha = this.brightness;
-                
+               
                 // Vẽ sparkle với gradient
                 const gradient = ctx.createRadialGradient(
                     this.x, this.y, 0,
@@ -390,18 +608,18 @@
                 gradient.addColorStop(0.1, 'rgba(200, 180, 255, 0.8)');
                 gradient.addColorStop(0.5, 'rgba(150, 120, 255, 0.3)');
                 gradient.addColorStop(1, 'transparent');
-                
+               
                 ctx.fillStyle = gradient;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
                 ctx.fill();
-                
+               
                 // Core sáng
                 ctx.fillStyle = '#ffffff';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
                 ctx.fill();
-                
+               
                 // Tia sáng chữ thập
                 ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
                 ctx.lineWidth = this.size * 0.2;
@@ -411,11 +629,10 @@
                 ctx.moveTo(this.x, this.y - this.size * 2);
                 ctx.lineTo(this.x, this.y + this.size * 2);
                 ctx.stroke();
-                
+               
                 ctx.restore();
             }
         }
-
         // Tạo sparkles phân bố đều
         const sparkles = [];
         const sparkleCount = 200; // Tăng số lượng để phủ đều màn hình
@@ -424,20 +641,18 @@
                 sparkles.push(new Sparkle());
             }, i * 50); // Stagger creation cho hiệu ứng mượt
         }
-
         // Animation loop
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+           
             sparkles.forEach(sparkle => {
                 sparkle.update();
                 sparkle.draw();
             });
-            
+           
             requestAnimationFrame(animate);
         }
         animate();
-
         // Hiệu ứng sparkle khi click vào logo
         document.querySelector('.logo-container').addEventListener('click', function() {
             // Tạo burst effect
@@ -450,6 +665,47 @@
                 sparkle.size = Math.random() * 3 + 1;
                 sparkles.push(sparkle);
             }
+        });
+
+        // Xử lý toggle sidebar
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+            // Toggle class cho animation hamburger
+            this.classList.toggle('open');
+        });
+
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            toggleBtn.classList.remove('open');
+        });
+
+        // Xử lý lựa chọn môn học
+        const subjectBtns = document.querySelectorAll('.subject-btn');
+        subjectBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Xóa active class từ tất cả
+                subjectBtns.forEach(b => b.classList.remove('active'));
+                // Thêm active cho button hiện tại
+                this.classList.add('active');
+                const subject = this.dataset.subject;
+                // Đóng sidebar sau khi chọn
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                toggleBtn.classList.remove('open');
+                // Xử lý chuyển trang hoặc load nội dung
+                if (subject === 'trang-chu') {
+                    window.location.href = 'index.html'; // Giả sử file 1 là index.html
+                } else {
+                    console.log(`Chọn môn: ${subject}`); // Placeholder cho hành động
+                    // Ví dụ: load nội dung môn học tương ứng vào content-container
+                }
+            });
         });
     </script>
 </body>

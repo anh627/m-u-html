@@ -16,7 +16,6 @@
             position: relative;
             min-height: 100vh;
             color: white;
-            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Morph-like easing for transitions */
         }
         /* Galaxy Background Gradient */
         .galaxy-background {
@@ -32,7 +31,6 @@
                 #0f0c29 75%,
                 #1a1a3e 100%);
             z-index: -3;
-            transition: opacity 1s ease;
         }
         /* Lớp phủ galaxy xanh tím - Hiệu ứng giải lụa nhấp nhô */
         .silk-ribbon1 {
@@ -46,7 +44,6 @@
                 transparent 40%);
             animation: floatRibbon1 15s ease-in-out infinite;
             z-index: -2;
-            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         .silk-ribbon2 {
             position: fixed;
@@ -59,7 +56,6 @@
                 transparent 40%);
             animation: floatRibbon2 20s ease-in-out infinite;
             z-index: -2;
-            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         .silk-ribbon3 {
             position: fixed;
@@ -72,7 +68,6 @@
                 transparent 45%);
             animation: floatRibbon3 18s ease-in-out infinite;
             z-index: -2;
-            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         /* Animations cho giải lụa nhấp nhô */
         @keyframes floatRibbon1 {
@@ -126,7 +121,6 @@
             width: 80px;
             height: 80px;
             cursor: pointer;
-            transition: transform 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         .logo-box {
             width: 100%;
@@ -140,7 +134,6 @@
             animation: rotateLogo 6s linear infinite;
             position: relative;
             overflow: hidden;
-            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         /* Ánh sáng kim loại lướt qua */
         .logo-box::before {
@@ -198,7 +191,6 @@
             text-shadow:
                 0 0 10px rgba(0, 0, 0, 0.5),
                 0 2px 4px rgba(0, 0, 0, 0.3);
-            transition: all 1s ease;
         }
         /* Hover effect */
         .logo-container:hover .logo-box {
@@ -217,7 +209,237 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            transition: opacity 1s ease;
+        }
+        /* Toggle Button - Nút mở/đóng sidebar đẹp hơn */
+        .toggle-btn {
+            position: fixed;
+            top: 50px;
+            left: 130px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 
+                0 5px 20px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+        }
+        /* Tooltip cho toggle button */
+        .toggle-btn::after {
+            content: 'MÔN HỌC STEM';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .toggle-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        .toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .toggle-btn:hover::before {
+            left: 100%;
+        }
+        .toggle-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        .toggle-btn .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .toggle-btn .hamburger-line::before,
+        .toggle-btn .hamburger-line::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        .toggle-btn .hamburger-line::before {
+            top: -6px;
+        }
+        .toggle-btn .hamburger-line::after {
+            top: 6px;
+        }
+        .toggle-btn.open .hamburger-line {
+            background: transparent;
+        }
+        .toggle-btn.open .hamburger-line::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+        .toggle-btn.open .hamburger-line::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+        /* Sidebar Menu - Bảng lựa chọn đẹp hơn với thanh cuộn */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, 
+                rgba(15, 12, 41, 0.95) 0%,
+                rgba(48, 43, 99, 0.95) 50%,
+                rgba(36, 36, 62, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 99;
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar-header {
+            padding: 120px 20px 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: inherit;
+            backdrop-filter: inherit;
+            z-index: 1;
+        }
+        .sidebar-header h2 {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0 10px 20px 10px;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 5px 0;
+        }
+        .sidebar button {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            color: white;
+            border: none;
+            padding: 18px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .sidebar button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .sidebar button:hover::before,
+        .sidebar button.active::before {
+            left: 100%;
+        }
+        .sidebar button:hover,
+        .sidebar button.active {
+            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+        }
+        .sidebar button .icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        /* Custom scrollbar cho sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            border-radius: 10px;
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+        }
+        /* Overlay khi sidebar mở */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 98;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
         /* Content Container */
         .content-container {
@@ -229,8 +451,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            transform-origin: center;
         }
         /* Tiêu đề nổi bật */
         .main-title {
@@ -252,73 +472,28 @@
             animation: textGlow 3s ease-in-out infinite;
             margin-bottom: 20px;
             filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
-            transition: all 1s ease;
         }
+        /* Subtitle styling - phần KHOA HỌC • CÔNG NGHỆ */
         .subtitle {
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #00ffff, #ff00ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
-            text-shadow:
-                0 0 20px rgba(102, 126, 234, 0.8),
-                0 0 40px rgba(118, 75, 162, 0.6);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             letter-spacing: 3px;
-            transition: all 1s ease;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            animation: subtitleGlow 2s ease-in-out infinite alternate;
         }
-        /* Content text nổi bật */
         .content-text {
             max-width: 800px;
             text-align: center;
             font-size: 1.2rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 1s ease;
-        }
-        /* Nút Bắt đầu học */
-        .start-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            margin-top: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .start-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-        }
-        .start-btn:active {
-            transform: scale(0.95);
-        }
-        /* Morph effect classes */
-        body.morph-out {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            animation: morphOut 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-        body.morph-in {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            animation: morphIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-        @keyframes morphOut {
-            0% { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-            100% { clip-path: polygon(0 0, 0 0, 0 0, 0 0); opacity: 0; }
-        }
-        @keyframes morphIn {
-            0% { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); opacity: 0; }
-            100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; }
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
         }
         /* Animations */
         @keyframes rotateLogo {
@@ -351,13 +526,22 @@
                 filter: drop-shadow(0 0 30px rgba(255, 119, 248, 0.8));
             }
         }
+        @keyframes subtitleGlow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
+            }
+            100% {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.5));
+            }
+        }
         /* Responsive */
         @media (max-width: 768px) {
             .main-title {
                 font-size: 3rem;
             }
             .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+                letter-spacing: 2px;
             }
             .logo-container, .logo-text {
                 width: 60px;
@@ -366,20 +550,49 @@
             .logo-text {
                 font-size: 0.9rem;
             }
-            .start-btn {
-                font-size: 1.2rem;
-                padding: 12px 30px;
+            .sidebar {
+                width: 280px;
+                left: -280px;
+            }
+            .sidebar button {
+                font-size: 0.9rem;
+                padding: 16px 20px;
+                gap: 10px;
+            }
+            .toggle-btn {
+                top: 40px;
+                left: 110px;
+                width: 45px;
+                height: 45px;
+            }
+            .toggle-btn .hamburger-line,
+            .toggle-btn .hamburger-line::before,
+            .toggle-btn .hamburger-line::after {
+                width: 18px;
+                height: 2px;
+            }
+            .toggle-btn .hamburger-line::before {
+                top: -5px;
+            }
+            .toggle-btn .hamburger-line::after {
+                top: 5px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Toggle Button - Nút mở/đóng sidebar với hamburger animation -->
+    <button id="toggleBtn" class="toggle-btn">
+        <span class="hamburger-line"></span>
+    </button>
+
     <!-- Logo góc trái -->
     <div class="logo-container">
         <div class="logo-box"></div>
     </div>
     <!-- Chữ STEM đứng yên -->
     <div class="logo-text">STEM</div>
+
     <!-- Background Layers -->
     <div class="galaxy-background"></div>
     <div class="silk-ribbon1"></div>
@@ -388,16 +601,35 @@
    
     <!-- Canvas cho hiệu ứng lấp lánh -->
     <canvas id="sparkleCanvas"></canvas>
+
+    <!-- Sidebar Menu - Bảng lựa chọn với header và icons -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>MÔN HỌC STEM</h2>
+        </div>
+        <ul>
+            <li><button class="subject-btn active" data-subject="trang-chu"><span class="icon">🏠</span> Trang chủ</button></li>
+            <li><button class="subject-btn" data-subject="co-hoc"><span class="icon">⚙️</span> Cơ học</button></li>
+            <li><button class="subject-btn" data-subject="quang-hoc"><span class="icon">🔬</span> Quang học</button></li>
+            <li><button class="subject-btn" data-subject="dien-tu"><span class="icon">⚡</span> Điện tử</button></li>
+            <li><button class="subject-btn" data-subject="nhiet-hoc"><span class="icon">🔥</span> Nhiệt học</button></li>
+            <li><button class="subject-btn" data-subject="hoa-hoc"><span class="icon">🧪</span> Hoá học</button></li>
+            <li><button class="subject-btn" data-subject="toan-hoc"><span class="icon">📐</span> Toán học</button></li>
+            <li><button class="subject-btn" data-subject="mini-game"><span class="icon">🎮</span> Mini game</button></li>
+        </ul>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+   
     <!-- Main Content -->
     <div class="content-container">
         <h1 class="main-title">STEM EDUCATION</h1>
         <p class="subtitle">KHOA HỌC • CÔNG NGHỆ • KỸ THUẬT • TOÁN HỌC</p>
-       
         <div class="content-text">
             <p>Chào mừng bạn đến với thế giới STEM - nơi khoa học và công nghệ hòa quyện,
             tạo nên những đột phá vượt bậc cho tương lai. Hãy cùng khám phá và sáng tạo!</p>
         </div>
-        <button id="startBtn" class="start-btn">BẮT ĐẦU HỌC</button>
     </div>
     <script>
         // Canvas sparkle effect - phân bố đều trên toàn trang
@@ -506,7 +738,7 @@
             requestAnimationFrame(animate);
         }
         animate();
-        // Hiệu ứng sparkle khi click vào logo
+        // Hiệu ứng sparkle và quay về trang chủ khi click vào logo
         document.querySelector('.logo-container').addEventListener('click', function() {
             // Tạo burst effect
             for (let i = 0; i < 10; i++) {
@@ -518,25 +750,50 @@
                 sparkle.size = Math.random() * 3 + 1;
                 sparkles.push(sparkle);
             }
+            // Quay về trang chủ
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500);
         });
 
-        // Xử lý nút Bắt đầu Học với hiệu ứng morph
-        document.getElementById('startBtn').addEventListener('click', function() {
-            document.body.classList.add('morph-out');
-            // Tăng sparkle effect trong quá trình morph
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const sparkle = new Sparkle();
-                    sparkle.x = Math.random() * canvas.width;
-                    sparkle.y = Math.random() * canvas.height;
-                    sparkle.size = Math.random() * 4 + 2;
-                    sparkle.maxBrightness = 1;
-                    sparkles.push(sparkle);
-                }, i * 20);
-            }
-            setTimeout(() => {
-                window.location.href = 'file2.html'; // Giả sử file thứ hai là file2.html
-            }, 1000);
+        // Xử lý toggle sidebar
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+            // Toggle class cho animation hamburger
+            this.classList.toggle('open');
+        });
+
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            toggleBtn.classList.remove('open');
+        });
+
+        // Xử lý lựa chọn môn học
+        const subjectBtns = document.querySelectorAll('.subject-btn');
+        subjectBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Xóa active class từ tất cả
+                subjectBtns.forEach(b => b.classList.remove('active'));
+                // Thêm active cho button hiện tại
+                this.classList.add('active');
+                const subject = this.dataset.subject;
+                // Đóng sidebar sau khi chọn
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                toggleBtn.classList.remove('open');
+                // Xử lý chuyển trang
+                if (subject === 'trang-chu') {
+                    window.location.href = 'index.html'; // Quay về trang chủ
+                } else {
+                    window.location.href = `${subject}.html`; // Chuyển sang file con tương ứng
+                }
+            });
         });
     </script>
 </body>

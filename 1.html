@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Education - Galaxy Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Galaxy Background Gradient */
+        .galaxy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                #0f0c29 0%,
+                #302b63 25%,
+                #24243e 50%,
+                #0f0c29 75%,
+                #1a1a3e 100%);
+            z-index: -3;
+        }
+
+        /* Lớp phủ galaxy xanh tím - Hiệu ứng giải lụa nhấp nhô */
+        .silk-ribbon1 {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, 
+                rgba(123, 67, 255, 0.3) 0%, 
+                transparent 40%);
+            animation: floatRibbon1 15s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        .silk-ribbon2 {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, 
+                rgba(189, 0, 255, 0.3) 0%, 
+                transparent 40%);
+            animation: floatRibbon2 20s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        .silk-ribbon3 {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 119, 248, 0.2) 0%, 
+                transparent 45%);
+            animation: floatRibbon3 18s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        /* Animations cho giải lụa nhấp nhô */
+        @keyframes floatRibbon1 {
+            0%, 100% { 
+                transform: translate(0%, 0%) scale(1) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translate(20%, -10%) scale(1.1) rotate(45deg);
+                opacity: 0.5;
+            }
+            50% { 
+                transform: translate(-10%, 20%) scale(0.9) rotate(90deg);
+                opacity: 0.4;
+            }
+            75% { 
+                transform: translate(10%, 10%) scale(1.05) rotate(-45deg);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes floatRibbon2 {
+            0%, 100% { 
+                transform: translate(0%, 0%) scale(1.2) rotate(180deg);
+                opacity: 0.3;
+            }
+            33% { 
+                transform: translate(-20%, 15%) scale(1) rotate(270deg);
+                opacity: 0.5;
+            }
+            66% { 
+                transform: translate(15%, -20%) scale(1.3) rotate(360deg);
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes floatRibbon3 {
+            0%, 100% { 
+                transform: translate(0%, 0%) scale(0.8) rotate(-90deg);
+                opacity: 0.2;
+            }
+            50% { 
+                transform: translate(25%, 25%) scale(1.2) rotate(90deg);
+                opacity: 0.4;
+            }
+        }
+
+        /* Logo góc trái */
+        .logo-container {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .logo-box {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            box-shadow: 
+                0 0 30px rgba(102, 126, 234, 0.6),
+                0 0 60px rgba(118, 75, 162, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: rotateLogo 6s linear infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ánh sáng kim loại lướt qua */
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 35%,
+                rgba(255, 255, 255, 0.3) 40%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.3) 60%,
+                rgba(255, 255, 255, 0.1) 65%,
+                transparent 70%
+            );
+            animation: metallicShine 3s linear infinite;
+        }
+
+        /* Ánh sáng kim loại thứ 2 cho hiệu ứng đẹp hơn */
+        .logo-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                -45deg,
+                transparent 40%,
+                rgba(255, 255, 255, 0.05) 45%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.05) 55%,
+                transparent 60%
+            );
+            animation: metallicShine2 4s linear infinite;
+        }
+
+        /* Chữ STEM đứng yên hoàn toàn */
+        .logo-text {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            pointer-events: none;
+            z-index: 101;
+            text-shadow: 
+                0 0 10px rgba(0, 0, 0, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hover effect */
+        .logo-container:hover .logo-box {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            box-shadow: 
+                0 0 40px rgba(102, 126, 234, 0.8),
+                0 0 80px rgba(118, 75, 162, 0.6);
+        }
+
+        /* Canvas cho hiệu ứng lấp lánh */
+        #sparkleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Content Container */
+        .content-container {
+            position: relative;
+            z-index: 10;
+            padding: 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Tiêu đề nổi bật */
+        .main-title {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                #00ffff 25%, 
+                #ff00ff 50%, 
+                #00ffff 75%, 
+                #ffffff 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            text-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.5);
+            animation: textGlow 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            text-shadow: 
+                0 0 20px rgba(102, 126, 234, 0.8),
+                0 0 40px rgba(118, 75, 162, 0.6);
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+
+        /* Content text nổi bật */
+        .content-text {
+            max-width: 800px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes rotateLogo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes metallicShine {
+            0% { 
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% { 
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes metallicShine2 {
+            0% { 
+                transform: translateX(100%) translateY(-100%) rotate(-45deg);
+            }
+            100% { 
+                transform: translateX(-100%) translateY(100%) rotate(-45deg);
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+            }
+            50% { 
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 30px rgba(255, 119, 248, 0.8));
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .logo-container, .logo-text {
+                width: 60px;
+                height: 60px;
+            }
+            .logo-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo góc trái -->
+    <div class="logo-container">
+        <div class="logo-box"></div>
+    </div>
+    <!-- Chữ STEM đứng yên -->
+    <div class="logo-text">STEM</div>
+
+    <!-- Background Layers -->
+    <div class="galaxy-background"></div>
+    <div class="silk-ribbon1"></div>
+    <div class="silk-ribbon2"></div>
+    <div class="silk-ribbon3"></div>
+    
+    <!-- Canvas cho hiệu ứng lấp lánh -->
+    <canvas id="sparkleCanvas"></canvas>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <h1 class="main-title">STEM EDUCATION</h1>
+        <p class="subtitle">KHOA HỌC • CÔNG NGHỆ • KỸ THUẬT • TOÁN HỌC</p>
+        
+        <div class="content-text">
+            <p>Chào mừng bạn đến với thế giới STEM - nơi khoa học và công nghệ hòa quyện, 
+            tạo nên những đột phá vượt bậc cho tương lai. Hãy cùng khám phá và sáng tạo!</p>
+        </div>
+    </div>
+
+    <script>
+        // Canvas sparkle effect - phân bố đều trên toàn trang
+        const canvas = document.getElementById('sparkleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Sparkle particles phân bố đều
+        class Sparkle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                // Phân bố đều trên toàn màn hình
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.brightness = 0;
+                this.maxBrightness = Math.random() * 0.8 + 0.2;
+                this.fadeSpeed = Math.random() * 0.02 + 0.01;
+                this.fadingIn = true;
+                
+                // Tạo hiệu ứng lấp lánh tĩnh (không di chuyển nhiều)
+                this.twinkleSpeed = Math.random() * 0.1 - 0.05;
+                this.originalX = this.x;
+                this.originalY = this.y;
+                this.twinkleRadius = Math.random() * 2;
+            }
+
+            update() {
+                // Hiệu ứng lấp lánh tại chỗ
+                this.x = this.originalX + Math.sin(Date.now() * 0.001 * this.twinkleSpeed) * this.twinkleRadius;
+                this.y = this.originalY + Math.cos(Date.now() * 0.001 * this.twinkleSpeed) * this.twinkleRadius;
+
+                // Fade in/out
+                if (this.fadingIn) {
+                    this.brightness += this.fadeSpeed;
+                    if (this.brightness >= this.maxBrightness) {
+                        this.fadingIn = false;
+                    }
+                } else {
+                    this.brightness -= this.fadeSpeed;
+                    if (this.brightness <= 0) {
+                        this.reset();
+                    }
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.brightness;
+                
+                // Vẽ sparkle với gradient
+                const gradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.size * 3
+                );
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+                gradient.addColorStop(0.1, 'rgba(200, 180, 255, 0.8)');
+                gradient.addColorStop(0.5, 'rgba(150, 120, 255, 0.3)');
+                gradient.addColorStop(1, 'transparent');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Core sáng
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Tia sáng chữ thập
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.lineWidth = this.size * 0.2;
+                ctx.beginPath();
+                ctx.moveTo(this.x - this.size * 2, this.y);
+                ctx.lineTo(this.x + this.size * 2, this.y);
+                ctx.moveTo(this.x, this.y - this.size * 2);
+                ctx.lineTo(this.x, this.y + this.size * 2);
+                ctx.stroke();
+                
+                ctx.restore();
+            }
+        }
+
+        // Tạo sparkles phân bố đều
+        const sparkles = [];
+        const sparkleCount = 200; // Tăng số lượng để phủ đều màn hình
+        for (let i = 0; i < sparkleCount; i++) {
+            setTimeout(() => {
+                sparkles.push(new Sparkle());
+            }, i * 50); // Stagger creation cho hiệu ứng mượt
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            sparkles.forEach(sparkle => {
+                sparkle.update();
+                sparkle.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Hiệu ứng sparkle khi click vào logo
+        document.querySelector('.logo-container').addEventListener('click', function() {
+            // Tạo burst effect
+            for (let i = 0; i < 10; i++) {
+                const sparkle = new Sparkle();
+                sparkle.x = 70;
+                sparkle.y = 70;
+                sparkle.originalX = 70 + (Math.random() - 0.5) * 100;
+                sparkle.originalY = 70 + (Math.random() - 0.5) * 100;
+                sparkle.size = Math.random() * 3 + 1;
+                sparkles.push(sparkle);
+            }
+        });
+    </script>
+</body>
+</html>
